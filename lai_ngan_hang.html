@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính lãi ngân hàng</title>
+</head>
+<body>
+<pre>
+    Số tiền gửi ban đầu         <input type="text" id="initMoney"><br/>
+    Thời gian gửi(tháng)        <input type="text" id="month"><br/>
+    Lãi suất hằng tháng(%)      <input type="text" id="intRate"><br/>
+    <button type="button" onclick="confirmX()">Xác Nhận</button>
+    <p id="result"></p>
+</pre>
+<p id="result"></p>
+<script>
+    function confirmX() {
+        let money = parseFloat(document.getElementById("initMoney").value);
+        let month = parseFloat(document.getElementById("month").value);
+        let rate = parseFloat(document.getElementById("intRate").value);
+        let result = money;
+        for (i = 1; i <= month; i++) {
+            result *= (1 + rate / 100);
+        }
+        document.getElementById("result").innerHTML = "Số tiền cả gốc và lãi = " + result;
+    }
+</script>
+<style>
+    input {
+        display: inline-block;
+        margin: 10px;
+    }
+</style>
+</body>
+</html>
